@@ -1,0 +1,83 @@
+# Medical Diseases & Conditions Vocabulary
+# One term per line.
+
+hypertension
+high blood pressure
+diabetes
+diabetes mellitus
+type 1 diabetes
+type 2 diabetes
+asthma
+COPD
+chronic obstructive pulmonary disease
+emphysema
+bronchitis
+chronic bronchitis
+pneumonia
+tuberculosis
+TB
+cancer
+carcinoma
+lymphoma
+leukaemia
+leukemia
+melanoma
+osteoporosis
+osteoarthritis
+rheumatoid arthritis
+gout
+fibromyalgia
+hypothyroidism
+hyperthyroidism
+anaemia
+anemia
+iron deficiency anaemia
+sickle cell anaemia
+angina
+myocardial infarction
+heart attack
+heart failure
+congestive heart failure
+arrhythmia
+atrial fibrillation
+AFib
+stroke
+TIA
+transient ischaemic attack
+transient ischemic attack
+epilepsy
+Parkinson's disease
+Alzheimer's disease
+dementia
+multiple sclerosis
+MS
+Crohn's disease
+ulcerative colitis
+irritable bowel syndrome
+IBS
+gastroesophageal reflux disease
+GERD
+GORD
+peptic ulcer
+gallstones
+kidney stones
+renal calculi
+chronic kidney disease
+CKD
+urinary tract infection
+UTI
+cystitis
+prostatitis
+polycystic ovary syndrome
+PCOS
+endometriosis
+depression
+anxiety disorder
+bipolar disorder
+schizophrenia
+PTSD
+post traumatic stress disorder
+attention deficit hyperactivity disorder
+ADHD
+autism spectrum disorder
+ASD

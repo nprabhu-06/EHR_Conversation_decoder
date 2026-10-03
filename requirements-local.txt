@@ -1,0 +1,44 @@
+# ── Local Engine Dependencies (Community-WhisperX) ────────────────────────────
+#
+# INSTALLATION ORDER MATTERS:
+#   1. Install PyTorch first — see https://pytorch.org/get-started/locally/
+#      Choose your OS, CUDA version, and install command.
+#      Example (CUDA 12.1):
+#        pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+#
+#   2. Then install everything below:
+#        pip install -r requirements-local.txt
+#
+# SYSTEM REQUIREMENTS:
+#   - Python 3.11 or 3.12 (PyTorch is not yet stable on 3.14)
+#   - FFmpeg on PATH
+#   - GPU strongly recommended (large-v3 on CPU is ~20x slower than audio length)
+#
+# HUGGINGFACE TOKEN REQUIRED:
+#   - Create at: https://huggingface.co/settings/tokens
+#   - Accept terms at: https://huggingface.co/pyannote/speaker-diarization
+#   - Add to .env: HUGGINGFACE_TOKEN=hf_...
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core
+python-dotenv>=1.0.0
+click>=8.1.7
+rich>=13.7.0
+reportlab>=4.0.0
+jsonschema>=4.0.0
+
+# Diarization
+pyannote.audio>=3.1.0         # Community-1 speaker diarization
+
+# ASR
+whisperx>=3.1.1               # Whisper + forced word-level alignment
+
+# VAD (optional — enables voice activity detection pre-filter)
+silero-vad>=4.0.0             # Silero VAD v5 (requires torch)
+
+# Evaluation
+pyannote.metrics>=3.2.1
+jiwer>=3.0.3
+
+# Language detection (optional)
+# langdetect>=1.0.9

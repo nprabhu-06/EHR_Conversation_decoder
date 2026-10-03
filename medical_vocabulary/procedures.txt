@@ -1,0 +1,66 @@
+# Medical Procedures Vocabulary
+
+appendectomy
+appendicectomy
+cholecystectomy
+colectomy
+colonoscopy
+sigmoidoscopy
+gastroscopy
+endoscopy
+laparoscopy
+laparotomy
+biopsy
+excision biopsy
+core biopsy
+fine needle aspiration
+mastectomy
+lumpectomy
+hysterectomy
+caesarean section
+C-section
+episiotomy
+vasectomy
+circumcision
+hip replacement
+knee replacement
+arthroplasty
+arthroscopy
+coronary artery bypass graft
+CABG
+percutaneous coronary intervention
+PCI
+stent insertion
+angioplasty
+pacemaker insertion
+defibrillator implantation
+ICD implantation
+craniotomy
+spinal fusion
+laminectomy
+dialysis
+haemodialysis
+hemodialysis
+peritoneal dialysis
+organ transplant
+kidney transplant
+liver transplant
+heart transplant
+chemotherapy
+radiotherapy
+radiation therapy
+immunotherapy
+targeted therapy
+physiotherapy
+occupational therapy
+speech therapy
+cognitive behavioural therapy
+CBT
+dialysis
+phlebotomy
+venepuncture
+catheterisation
+catheterization
+intubation
+ventilation
+tracheostomy

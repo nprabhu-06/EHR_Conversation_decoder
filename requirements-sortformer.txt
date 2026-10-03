@@ -1,0 +1,34 @@
+# ── Sortformer / NVIDIA NeMo Engine Dependencies ──────────────────────────────
+#
+# EXPERIMENTAL — Sortformer is a neural end-to-end diarization model
+# by NVIDIA that performs diarization in a single forward pass.
+#
+# REQUIREMENTS:
+#   - CUDA GPU (CPU inference is NOT supported by NeMo Sortformer)
+#   - Python 3.10 or 3.11 (NeMo 1.x compatibility range)
+#   - PyTorch with matching CUDA version (install separately)
+#
+# INSTALLATION:
+#   1. Install PyTorch: https://pytorch.org/get-started/locally/
+#   2. pip install -r requirements-sortformer.txt
+#
+# USAGE:
+#   python main.py --audio consultation.mp3 --engine sortformer-whisper --consent
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Core
+python-dotenv>=1.0.0
+click>=8.1.7
+rich>=13.7.0
+reportlab>=4.0.0
+jsonschema>=4.0.0
+
+# NVIDIA NeMo (Sortformer)
+nemo_toolkit[asr]>=1.23.0
+
+# ASR (same as local engine)
+whisperx>=3.1.1
+
+# Evaluation
+pyannote.metrics>=3.2.1
+jiwer>=3.0.3

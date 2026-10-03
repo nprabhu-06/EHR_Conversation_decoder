@@ -1,0 +1,87 @@
+# Medical Anatomy Vocabulary
+
+heart
+myocardium
+pericardium
+endocardium
+aorta
+coronary artery
+pulmonary artery
+pulmonary vein
+vena cava
+atrium
+ventricle
+mitral valve
+aortic valve
+tricuspid valve
+pulmonary valve
+lung
+bronchus
+bronchi
+trachea
+alveoli
+pleura
+diaphragm
+brain
+cerebrum
+cerebellum
+brainstem
+spinal cord
+meninges
+neuron
+nerve
+liver
+gallbladder
+bile duct
+pancreas
+stomach
+oesophagus
+esophagus
+duodenum
+jejunum
+ileum
+colon
+rectum
+appendix
+kidney
+ureter
+bladder
+urethra
+uterus
+ovary
+fallopian tube
+cervix
+vagina
+prostate
+testis
+testes
+epididymis
+skin
+dermis
+epidermis
+subcutaneous tissue
+muscle
+tendon
+ligament
+cartilage
+bone
+joint
+synovium
+lymph node
+lymph vessel
+spleen
+thymus
+thyroid
+parathyroid
+adrenal gland
+pituitary gland
+hypothalamus
+eye
+cornea
+retina
+lens
+optic nerve
+ear
+cochlea
+eardrum
+tympanic membrane

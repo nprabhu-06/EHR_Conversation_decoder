@@ -1,0 +1,84 @@
+# Medical Symptoms Vocabulary
+# One term per line. Lines starting with # are comments.
+# Used for medical text normalization and clinical extraction.
+
+headache
+head ache
+migraine
+dizziness
+vertigo
+nausea
+vomiting
+fatigue
+tiredness
+weakness
+chest pain
+chest tightness
+shortness of breath
+breathlessness
+dyspnea
+palpitations
+cough
+dry cough
+productive cough
+fever
+high temperature
+chills
+sweating
+night sweats
+abdominal pain
+stomach pain
+stomach ache
+back pain
+joint pain
+arthralgia
+muscle pain
+myalgia
+sore throat
+difficulty swallowing
+dysphagia
+loss of appetite
+weight loss
+weight gain
+swollen ankles
+oedema
+edema
+rash
+skin rash
+itching
+pruritus
+numbness
+tingling
+pins and needles
+blurred vision
+double vision
+hearing loss
+tinnitus
+ear ringing
+runny nose
+nasal congestion
+sinus pain
+constipation
+diarrhoea
+diarrhea
+blood in urine
+haematuria
+hematuria
+frequent urination
+painful urination
+dysuria
+difficulty urinating
+urinary retention
+anxiety
+depression
+insomnia
+sleep problems
+confusion
+memory loss
+memory problems
+seizure
+fainting
+syncope
+loss of consciousness
+tremor
+shaking

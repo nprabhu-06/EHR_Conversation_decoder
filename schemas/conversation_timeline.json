@@ -1,0 +1,263 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ehr-module1-conversation-timeline-v1.json",
+  "title": "Module 1 → Module 3 Conversation Timeline",
+  "description": "Canonical output schema for the Doctor-Patient Clinical Conversation Capture system (Module 1). This is consumed by the EHR NLP/structuring module (Module 3).",
+  "type": "object",
+  "required": [
+    "encounter_id",
+    "schema_version",
+    "capture_mode",
+    "audio_ref",
+    "consent_logged",
+    "generated_at",
+    "speakers",
+    "conversation_timeline",
+    "emitted_to"
+  ],
+  "properties": {
+    "encounter_id": {
+      "type": "string",
+      "description": "Unique encounter identifier. Format: ENC-{uuid4} or ENC-{timestamp}.",
+      "pattern": "^ENC-"
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Schema version for downstream compatibility.",
+      "const": "1.0"
+    },
+    "capture_mode": {
+      "type": "string",
+      "enum": ["batch", "live"],
+      "description": "Whether audio was uploaded (batch) or captured live (live)."
+    },
+    "audio_ref": {
+      "type": "string",
+      "description": "Reference to the source audio file or storage URI."
+    },
+    "consent_logged": {
+      "type": "boolean",
+      "description": "Whether explicit consent was obtained before recording/processing."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp when this document was generated."
+    },
+    "engine": {
+      "type": "object",
+      "description": "Engine configuration used for this encounter.",
+      "properties": {
+        "diarization": {"type": "string"},
+        "asr": {"type": "string"},
+        "asr_model": {"type": "string"},
+        "mode": {"type": "string"}
+      }
+    },
+    "audio_metadata": {
+      "type": "object",
+      "description": "Audio file metadata.",
+      "properties": {
+        "duration_seconds": {"type": ["number", "null"]},
+        "sample_rate": {"type": "integer"},
+        "channels": {"type": "integer"},
+        "format": {"type": "string"}
+      }
+    },
+    "languages_detected": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "ISO 639-1 language codes detected in this encounter. e.g. ['en', 'te']"
+    },
+    "speakers": {
+      "type": "array",
+      "description": "All speakers detected in this encounter with their role assignments.",
+      "items": {
+        "type": "object",
+        "required": ["speaker_id", "role", "role_confidence"],
+        "properties": {
+          "speaker_id": {
+            "type": "string",
+            "description": "Raw diarization label. e.g. SPEAKER_00, SPK1"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "doctor", "patient", "attendant", "nurse",
+              "interpreter", "second_clinician", "other", "unknown"
+            ]
+          },
+          "role_confidence": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "Confidence in role assignment [0.0, 1.0]. Separate from ASR confidence."
+          },
+          "display_label": {
+            "type": "string",
+            "description": "Human-readable role label: Doctor, Patient, Attendant, etc."
+          },
+          "assignment_method": {
+            "type": "string",
+            "enum": ["first_speaker", "manual", "interactive", "auto"],
+            "description": "How the role was assigned."
+          }
+        }
+      }
+    },
+    "conversation_timeline": {
+      "type": "array",
+      "description": "Time-ordered list of all utterances. This is the PRIMARY output.",
+      "items": {
+        "type": "object",
+        "required": [
+          "utterance_id",
+          "seq",
+          "start_time",
+          "end_time",
+          "speaker_id",
+          "role",
+          "language",
+          "text",
+          "needs_review"
+        ],
+        "properties": {
+          "utterance_id": {
+            "type": "string",
+            "description": "Unique utterance identifier within this encounter. e.g. u1, u2"
+          },
+          "seq": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Sequential order index for preserving conversational order."
+          },
+          "start_time": {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+            "description": "Start time in HH:MM:SS.mmm format, referencing ORIGINAL audio timeline."
+          },
+          "end_time": {
+            "type": "string",
+            "pattern": "^\\d{2}:\\d{2}:\\d{2}\\.\\d{3}$",
+            "description": "End time in HH:MM:SS.mmm format."
+          },
+          "speaker_id": {
+            "type": "string",
+            "description": "Raw diarization speaker label."
+          },
+          "role": {
+            "type": "string",
+            "description": "Assigned clinical role (display form: Doctor, Patient, etc.)"
+          },
+          "language": {
+            "type": "string",
+            "description": "Detected language code: en, hi, te, mixed, unknown"
+          },
+          "text": {
+            "type": "string",
+            "description": "Normalized transcribed text (may differ from raw_text)."
+          },
+          "raw_text": {
+            "type": "string",
+            "description": "Original ASR output, preserved for audit."
+          },
+          "confidence": {
+            "type": ["number", "null"],
+            "minimum": 0.0,
+            "maximum": 1.0,
+            "description": "ASR confidence score. null if not provided by engine."
+          },
+          "needs_review": {
+            "type": "boolean",
+            "description": "True if confidence < threshold or overlap detected."
+          },
+          "overlap": {
+            "type": "boolean",
+            "description": "True if this utterance overlaps with another speaker."
+          },
+          "overlapping_speakers": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Speaker IDs that overlap with this utterance."
+          }
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "description": "Transcript quality summary.",
+      "properties": {
+        "total_utterances": {"type": "integer"},
+        "average_confidence": {"type": ["number", "null"]},
+        "low_confidence_count": {"type": "integer"},
+        "overlap_count": {"type": "integer"},
+        "review_required_count": {"type": "integer"},
+        "language_distribution": {"type": "object"}
+      }
+    },
+    "analytics": {
+      "type": "object",
+      "description": "Conversation analytics. Descriptive statistics only — no clinical conclusions.",
+      "properties": {
+        "total_duration_seconds": {"type": "number"},
+        "total_speech_seconds": {"type": "number"},
+        "silence_seconds": {"type": "number"},
+        "speakers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "speaker_id": {"type": "string"},
+              "role": {"type": "string"},
+              "total_speech_seconds": {"type": "number"},
+              "speech_percentage": {"type": "number"},
+              "turn_count": {"type": "integer"}
+            }
+          }
+        }
+      }
+    },
+    "clinical_summary": {
+      "type": ["object", "null"],
+      "description": "Optional rule-based clinical information extraction. FOR REVIEW ONLY.",
+      "properties": {
+        "disclaimer": {"type": "string"},
+        "chief_complaint": {"type": ["string", "null"]},
+        "symptoms": {"type": "array"},
+        "medications_mentioned": {"type": "array"},
+        "investigations_mentioned": {"type": "array"},
+        "follow_up_instructions": {"type": "array"}
+      }
+    },
+    "audit": {
+      "type": "object",
+      "description": "Audit trail metadata.",
+      "properties": {
+        "corrections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "utterance_id": {"type": "string"},
+              "original_text": {"type": "string"},
+              "corrected_text": {"type": "string"},
+              "corrected_by": {"type": "string"},
+              "corrected_at": {"type": "string"},
+              "reason": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "emitted_to": {
+      "type": "string",
+      "description": "Downstream consumer topic/queue identifier.",
+      "const": "module3.ingestion.conversation"
+    },
+    "emitted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp when document was emitted to downstream."
+    }
+  }
+}

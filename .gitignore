@@ -1,0 +1,38 @@
+# Environment — NEVER commit real .env
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Output transcripts (may contain PHI)
+output/
+
+# Test data (may contain PHI audio)
+test_data/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# HuggingFace model cache (large, not project-specific)
+# ~/.cache/huggingface/ is the default — no need to track here
+
+# OS
+.DS_Store
+Thumbs.db

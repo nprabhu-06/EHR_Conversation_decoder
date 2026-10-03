@@ -1,0 +1,104 @@
+# Medical Investigations Vocabulary
+
+blood test
+full blood count
+FBC
+complete blood count
+CBC
+haemoglobin
+hemoglobin
+white blood cell count
+WBC
+platelet count
+haematocrit
+hematocrit
+erythrocyte sedimentation rate
+ESR
+C-reactive protein
+CRP
+blood glucose
+fasting glucose
+HbA1c
+glycated haemoglobin
+lipid profile
+cholesterol
+LDL
+HDL
+triglycerides
+liver function test
+LFT
+kidney function test
+renal function test
+urea
+creatinine
+eGFR
+electrolytes
+sodium
+potassium
+thyroid function test
+TFT
+TSH
+T3
+T4
+urine test
+urine analysis
+urinalysis
+midstream urine
+MSU
+urine culture
+chest X-ray
+chest radiograph
+X-ray
+CT scan
+CT
+computed tomography
+MRI
+magnetic resonance imaging
+MRI scan
+ultrasound
+ultrasound scan
+echocardiogram
+echo
+electrocardiogram
+ECG
+EKG
+24-hour ECG
+Holter monitor
+exercise tolerance test
+ETT
+stress test
+spirometry
+lung function test
+pulmonary function test
+colonoscopy
+gastroscopy
+bronchoscopy
+cystoscopy
+bone density scan
+DEXA scan
+mammography
+mammogram
+PAP smear
+cervical smear
+PSA
+prostate specific antigen
+skin biopsy
+blood culture
+throat swab
+nasal swab
+COVID test
+PCR test
+rapid antigen test
+pregnancy test
+HIV test
+hepatitis test
+liver biopsy
+lumbar puncture
+spinal tap
+nerve conduction study
+electromyography
+EMG
+EEG
+electroencephalogram
+angiogram
+coronary angiogram

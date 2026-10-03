@@ -1,0 +1,24 @@
+# ── Core dependencies (always required) ───────────────────────────────────────
+assemblyai>=0.21.0            # AssemblyAI cloud engine
+python-dotenv>=1.0.0          # .env loading
+click>=8.1.7                  # CLI interface
+rich>=13.7.0                  # Pretty terminal output
+reportlab>=4.0.0              # PDF transcript output
+
+# ── JSON schema validation (optional, recommended) ────────────────────────────
+jsonschema>=4.0.0             # Validate conversation_timeline.json against schema
+
+# ── Language detection (optional — enables multi-lingual utterance tagging) ───
+# Uncomment either option:
+# langdetect>=1.0.9           # pip install langdetect
+# langid>=1.1.6               # pip install langid
+
+# ── Audio format handling ─────────────────────────────────────────────────────
+# FFmpeg is required as a system dependency (not pip):
+#   Windows: https://www.gyan.dev/ffmpeg/builds/
+#   macOS:   brew install ffmpeg
+#   Linux:   sudo apt install ffmpeg
+
+# ── Evaluation ────────────────────────────────────────────────────────────────
+pyannote.metrics>=3.2.1       # DER (Diarization Error Rate)
+jiwer>=3.0.3                  # WER (Word Error Rate)
